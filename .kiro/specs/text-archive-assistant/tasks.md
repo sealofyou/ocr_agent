@@ -81,6 +81,7 @@
 - [x] 3.3 编写文本输入的属性测试
 
 
+
   - **Property 2: 文本输入接收**
   - **Validates: Requirements 1.3**
 
@@ -100,15 +101,19 @@
   - **Validates: Requirements 1.6**
 
 
-- [ ] 4. 集成PaddleOCR引擎
+- [x] 4. 集成PaddleOCR引擎
+
+
   - 安装和配置PaddleOCR-VL
   - 创建OCRService类
   - 实现图片文字识别功能
   - 实现多语言支持（中英文）
   - 创建OCR识别API端点
+
   - _Requirements: 2.1, 2.2, 2.3_
 
-- [ ] 4.1 编写OCR服务的单元测试
+- [x] 4.1 编写OCR服务的单元测试
+
   - 测试OCRService类初始化
   - 测试图片验证功能
   - 测试OCR识别API端点
