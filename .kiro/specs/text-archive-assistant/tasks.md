@@ -56,6 +56,7 @@
   - 创建前端输入组件（文本输入框、文件上传、拍照按钮）
   - 实现文件格式和大小验证
   - 创建文件上传API端点
+
   - 实现文件存储逻辑
   - _Requirements: 1.1, 1.2, 1.3, 1.4, 1.5, 1.6_
 
@@ -66,14 +67,20 @@
   - 测试文件大小限制
   - 测试文件存储功能
 
+
   - _Requirements: 1.1, 1.4, 1.5, 1.6_
 
 - [x] 3.2 编写文件处理的属性测试
 
+
   - **Property 1: 图片传递到OCR引擎**
   - **Validates: Requirements 1.1, 1.2**
 
-- [ ] 3.3 编写文本输入的属性测试
+
+
+- [x] 3.3 编写文本输入的属性测试
+
+
   - **Property 2: 文本输入接收**
   - **Validates: Requirements 1.3**
 
@@ -82,11 +89,16 @@
   - **Property 3: 不支持格式拒绝**
 
 
+
+
   - **Validates: Requirements 1.4**
 
 - [ ] 3.5 编写支持格式的属性测试
   - **Property 4: 支持格式接受**
+
+
   - **Validates: Requirements 1.6**
+
 
 - [ ] 4. 集成PaddleOCR引擎
   - 安装和配置PaddleOCR-VL
