@@ -104,6 +104,7 @@
 - [x] 4. 集成PaddleOCR引擎
 
 
+
   - 安装和配置PaddleOCR-VL
   - 创建OCRService类
   - 实现图片文字识别功能
