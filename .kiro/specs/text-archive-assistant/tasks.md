@@ -133,10 +133,13 @@
 - [x] 4.2 编写OCR文本提取的属性测试
 
 
+
   - **Property 5: OCR文本提取**
   - **Validates: Requirements 2.1**
 
-- [ ] 4.3 编写多语言识别的属性测试
+- [x] 4.3 编写多语言识别的属性测试
+
+
   - **Property 6: 多语言识别**
   - **Validates: Requirements 2.2**
 
