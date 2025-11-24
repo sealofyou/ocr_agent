@@ -140,20 +140,26 @@
 - [x] 4.3 编写多语言识别的属性测试
 
 
+
   - **Property 6: 多语言识别**
   - **Validates: Requirements 2.2**
 
-- [ ] 5. 实现OCR结果预览和编辑
+- [x] 5. 实现OCR结果预览和编辑
+
+
   - 创建OCR预览组件
   - 实现识别结果返回API
   - 实现前端编辑功能
   - _Requirements: 2.4, 2.5_
 
-- [ ] 5.1 编写OCR结果返回的属性测试
+- [x] 5.1 编写OCR结果返回的属性测试
+
+
   - **Property 7: OCR结果返回**
   - **Validates: Requirements 2.4**
 
-- [ ] 5.2 编写OCR结果编辑的属性测试
+- [x] 5.2 编写OCR结果编辑的属性测试
+
   - **Property 8: OCR结果可编辑**
   - **Validates: Requirements 2.5**
 
