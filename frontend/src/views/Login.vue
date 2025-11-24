@@ -2,20 +2,43 @@
   <div class="login-page">
     <div class="login-card">
       <h2 class="card-title">登录</h2>
-      <p class="info-text">登录功能将在后续任务中实现</p>
       
-      <form class="login-form">
+      <div v-if="errorMessage" class="alert alert-error">
+        {{ errorMessage }}
+      </div>
+      
+      <form @submit.prevent="handleLogin" class="login-form">
         <div class="form-group">
           <label class="form-label">用户名</label>
-          <input type="text" class="form-input" placeholder="请输入用户名" disabled />
+          <input 
+            v-model="formData.username"
+            type="text" 
+            class="form-input" 
+            placeholder="请输入用户名"
+            required
+            :disabled="loading"
+          />
         </div>
         
         <div class="form-group">
           <label class="form-label">密码</label>
-          <input type="password" class="form-input" placeholder="请输入密码" disabled />
+          <input 
+            v-model="formData.password"
+            type="password" 
+            class="form-input" 
+            placeholder="请输入密码"
+            required
+            :disabled="loading"
+          />
         </div>
         
-        <button type="button" class="btn btn-primary btn-block" disabled>登录</button>
+        <button 
+          type="submit" 
+          class="btn btn-primary btn-block"
+          :disabled="loading"
+        >
+          {{ loading ? '登录中...' : '登录' }}
+        </button>
       </form>
       
       <div class="footer-links">
@@ -27,7 +50,49 @@
 </template>
 
 <script setup lang="ts">
-// 登录逻辑将在后续任务中实现
+import { ref } from 'vue'
+import { useRouter } from 'vue-router'
+import { useAuthStore } from '../stores/auth'
+import { login } from '../api/auth'
+
+const router = useRouter()
+const authStore = useAuthStore()
+
+const formData = ref({
+  username: '',
+  password: ''
+})
+
+const loading = ref(false)
+const errorMessage = ref('')
+
+async function handleLogin() {
+  if (!formData.value.username || !formData.value.password) {
+    errorMessage.value = '请填写用户名和密码'
+    return
+  }
+  
+  loading.value = true
+  errorMessage.value = ''
+  
+  try {
+    const response = await login({
+      username: formData.value.username,
+      password: formData.value.password
+    })
+    
+    // 保存认证信息
+    authStore.setAuth(response.access_token, response.user_id)
+    
+    // 跳转到首页
+    router.push('/')
+  } catch (err: any) {
+    console.error('Login error:', err)
+    errorMessage.value = err.response?.data?.detail || '登录失败，请检查用户名和密码'
+  } finally {
+    loading.value = false
+  }
+}
 </script>
 
 <style scoped>
