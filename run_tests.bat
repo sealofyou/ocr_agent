@@ -11,7 +11,7 @@ call conda activate ocr_agent
 
 echo.
 echo 运行单元测试...
-python -m pytest tests/test_auth.py tests/test_upload.py tests/test_ocr.py -v --tb=short
+python -m pytest tests/test_auth.py tests/test_upload.py tests/test_ocr.py tests/test_classification.py -v --tb=short
 
 echo.
 echo ========================================
