@@ -1,0 +1,8 @@
+fastapi[standard]
+pydantic-settings
+
+# 表单数据支持
+# python-multipart
+
+# 测试
+pytest
