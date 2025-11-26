@@ -52,6 +52,10 @@ app.include_router(classification_router, prefix=settings.API_V1_STR)
 from app.api.schedule import router as schedule_router
 app.include_router(schedule_router, prefix=settings.API_V1_STR)
 
+# 挂载备忘录路由
+from app.api.memo import router as memo_router
+app.include_router(memo_router, prefix=settings.API_V1_STR)
+
 
 # 自定义 Swagger 文档路由，指向本地的 Swagger UI 文件
 @app.get("/docs", include_in_schema=False)
