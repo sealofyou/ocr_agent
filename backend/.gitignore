@@ -1,18 +1,44 @@
-# .gitignore
-.idea/*
-# 环境
-.venv
-venv
-backend_template.egg-info
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
 
-# logs
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+backend_template.egg-info/
+
+# Testing
+.pytest_cache/
+.hypothesis/
+.coverage
+htmlcov/
+
+# Logs
 logs/
 *.log
-# 缓存
-.pytest_cache
-__pycache__/
 
-*.pyc
-*.pdf
-*.jpg
-*.png
+# Database
+*.db
+*.sqlite
+*.sqlite3
+test_*.db
+
+# Environment
+.env
+.env.local
+
+# IDEs
+.idea/
+.vscode/
+
+# Uploads
+uploads/
+static/application/*.pdf
+
+# Temporary
+*.tmp
+*.bak

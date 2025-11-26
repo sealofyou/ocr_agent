@@ -22,6 +22,16 @@ const router = createRouter({
       path: '/ocr',
       name: 'ocr',
       component: () => import('../views/OCR.vue')
+    },
+    {
+      path: '/memos',
+      name: 'memos',
+      component: () => import('../views/Memos.vue')
+    },
+    {
+      path: '/schedules',
+      name: 'schedules',
+      component: () => import('../views/Schedules.vue')
     }
   ]
 })

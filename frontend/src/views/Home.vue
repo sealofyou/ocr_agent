@@ -15,7 +15,39 @@
         <div class="feature-card">
           <h3>📝 备忘录管理</h3>
           <p>创建、编辑和管理您的备忘录</p>
-          <span class="coming-soon">即将推出</span>
+          <router-link 
+            v-if="authStore.isAuthenticated()" 
+            to="/memos" 
+            class="btn btn-primary"
+          >
+            查看备忘录
+          </router-link>
+          <router-link 
+            v-else 
+            to="/login" 
+            class="btn btn-primary"
+          >
+            登录后使用
+          </router-link>
+        </div>
+
+        <div class="feature-card">
+          <h3>📅 日程管理</h3>
+          <p>管理您的日程安排和待办事项</p>
+          <router-link 
+            v-if="authStore.isAuthenticated()" 
+            to="/schedules" 
+            class="btn btn-primary"
+          >
+            查看日程
+          </router-link>
+          <router-link 
+            v-else 
+            to="/login" 
+            class="btn btn-primary"
+          >
+            登录后使用
+          </router-link>
         </div>
         
         <div class="feature-card">
