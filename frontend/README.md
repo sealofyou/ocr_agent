@@ -1,6 +1,6 @@
-# 文本归档助手 - 前端
+# 手写管理助手 - 前端
 
-基于Vue 3 + TypeScript + Tailwind CSS开发的文本归档助手前端应用。
+基于Vue 3 + TypeScript + Tailwind CSS开发的手写管理助手前端应用。
 
 ## 功能特性
 

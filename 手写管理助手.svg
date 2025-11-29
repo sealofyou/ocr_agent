@@ -1,0 +1,374 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1120" viewBox="0 0 800 1120">
+  <!--
+    智能OCR日程&备忘助手 - 流程海报
+    设计要点：
+    - 纵向A3比例视图：800 x 1120
+    - 三层结构：背景层 / 流程内容层 / 装饰与技术栈层
+    - 配色：深夜科技蓝 + 品牌色模块块（与原Mermaid模块色呼应）
+    - 轻量动画：核心流程发光脉冲 + 技术栈小光点漂浮
+    - 元素总数控制在约 80 个以内，兼顾性能与细节
+  -->
+
+  <!-- ===== 背景层 ===== -->
+  <defs>
+    <!-- 整体背景渐变 -->
+    <linearGradient id="bgGradient" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#050816"/>
+      <stop offset="50%" stop-color="#0b1024"/>
+      <stop offset="100%" stop-color="#020308"/>
+    </linearGradient>
+
+    <!-- 模块卡片渐变 -->
+    <linearGradient id="cardBlue" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1f5cff"/>
+      <stop offset="100%" stop-color="#38bdf8"/>
+    </linearGradient>
+    <linearGradient id="cardOrange" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ff8a4a"/>
+      <stop offset="100%" stop-color="#ffb74d"/>
+    </linearGradient>
+    <linearGradient id="cardPurple" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#a855f7"/>
+      <stop offset="100%" stop-color="#d946ef"/>
+    </linearGradient>
+    <linearGradient id="cardCyan" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#06b6d4"/>
+      <stop offset="100%" stop-color="#22c55e"/>
+    </linearGradient>
+    <linearGradient id="cardGreen" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#22c55e"/>
+      <stop offset="100%" stop-color="#4ade80"/>
+    </linearGradient>
+    <linearGradient id="cardRed" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fb7185"/>
+      <stop offset="100%" stop-color="#f97316"/>
+    </linearGradient>
+    <linearGradient id="cardGray" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#64748b"/>
+      <stop offset="100%" stop-color="#94a3b8"/>
+    </linearGradient>
+
+    <!-- 背景网格线 -->
+    <pattern id="gridPattern" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0 H0 V40" fill="none" stroke="#1f2933" stroke-width="0.5" />
+    </pattern>
+
+    <!-- 模糊发光滤镜（用于起点和终点） -->
+    <filter id="glow">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur" />
+      <feColorMatrix in="blur" type="matrix"
+        values="
+          0 0 0 0 0.4
+          0 0 0 0 0.8
+          0 0 0 0 1
+          0 0 0 1 0" />
+    </filter>
+
+    <!-- 细腻阴影滤镜（用于卡片浮起效果） -->
+    <filter id="cardShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#000000" flood-opacity="0.35" />
+    </filter>
+  </defs>
+
+  <!-- 深色渐变背景 + 轻网格 -->
+  <rect x="0" y="0" width="800" height="1120" fill="url(#bgGradient)" />
+  <rect x="40" y="120" width="720" height="880" fill="url(#gridPattern)" opacity="0.3" />
+
+  <!-- 背景装饰圆弧 -->
+  <path d="M60 260 C200 140 600 140 740 260" fill="none" stroke="#1f6feb" stroke-width="1.5" opacity="0.4" />
+  <path d="M60 860 C200 980 600 980 740 860" fill="none" stroke="#0ea5e9" stroke-width="1.5" opacity="0.35" />
+
+  <!-- ===== 标题区 ===== -->
+  <g aria-label="标题区">
+    <text x="400" y="80" text-anchor="middle" fill="#e5f2ff"
+      font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
+      font-size="32" font-weight="700" letter-spacing="4">
+      手写管理助手
+    </text>
+    <text x="400" y="116" text-anchor="middle" fill="#94a3b8"
+      font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
+      font-size="16">
+      从一张图片到有条理的日常管理 · 端到端智能流程一览
+    </text>
+  </g>
+
+  <!-- ===== 核心流程纵向主线 ===== -->
+  <g aria-label="流程主线">
+    <!-- 竖直时间轴 -->
+    <line x1="400" y1="150" x2="400" y2="940" stroke="#1d4ed8" stroke-width="3" stroke-linecap="round"
+      stroke-dasharray="8 10" />
+
+    <!-- 起点发光节点 -->
+    <g>
+      <circle cx="400" cy="170" r="10" fill="#38bdf8" filter="url(#glow)" opacity="0.9" />
+      <circle cx="400" cy="170" r="5" fill="#e0f2fe" />
+      <text x="430" y="176" fill="#e5f2ff"
+        font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
+        font-size="14">
+        用户访问应用
+      </text>
+    </g>
+
+    <!-- 终点发光节点 -->
+    <g>
+      <circle cx="400" cy="920" r="10" fill="#22c55e" filter="url(#glow)" opacity="0.9" />
+      <circle cx="400" cy="920" r="5" fill="#dcfce7" />
+      <text x="430" y="926" fill="#e5f2ff"
+        font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
+        font-size="14">
+        管理完成 · 信息沉淀
+      </text>
+    </g>
+
+    <!-- 脉冲圈动画（视觉引导） -->
+    <circle cx="400" cy="170" r="14" fill="none" stroke="#38bdf8" stroke-width="2" opacity="0.7">
+      <animate attributeName="r" from="12" to="22" dur="2.2s" repeatCount="indefinite" />
+      <animate attributeName="opacity" from="0.9" to="0" dur="2.2s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="400" cy="920" r="14" fill="none" stroke="#4ade80" stroke-width="2" opacity="0.7">
+      <animate attributeName="r" from="12" to="22" dur="2.4s" repeatCount="indefinite" />
+      <animate attributeName="opacity" from="0.9" to="0" dur="2.4s" repeatCount="indefinite" />
+    </circle>
+  </g>
+
+  <!-- ===== 模块卡片层：按真实业务流自上而下排列 ===== -->
+  <!-- 公共卡片背景函数式结构（复用样式，减少元素复杂度） -->
+
+  <!-- 用户认证模块 -->
+  <g transform="translate(80,210)" filter="url(#cardShadow)" aria-label="用户认证模块">
+    <rect x="0" y="0" rx="18" ry="18" width="280" height="150" fill="url(#cardBlue)" opacity="0.95" />
+    <rect x="1" y="1" rx="17" ry="17" width="278" height="148" fill="none" stroke="#bfdbfe" stroke-width="1.2"
+      opacity="0.7" />
+    <text x="20" y="32" fill="#e0f2fe"
+      font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
+      font-size="18" font-weight="700">
+      🔐 用户认证模块
+    </text>
+    <text x="20" y="60" fill="#e5f2ff"
+      font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
+      font-size="13">
+      · 登录状态判断：是否已登录？
+    </text>
+    <text x="20" y="82" fill="#e5f2ff"
+      font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
+      font-size="13">
+      · 登录 / 注册页面引导
+    </text>
+    <text x="20" y="104" fill="#e5f2ff"
+      font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
+      font-size="13">
+      · JWT生成与校验 · 安全Token存储
+    </text>
+    <text x="20" y="130" fill="#bfdbfe"
+      font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
+      font-size="11">
+      保证每一次上传都在可信用户身份下进行
+    </text>
+  </g>
+
+  <!-- 文件上传模块 -->
+  <g transform="translate(440,290)" filter="url(#cardShadow)" aria-label="文件上传模块">
+    <rect x="0" y="0" rx="18" ry="18" width="280" height="150" fill="url(#cardOrange)" opacity="0.96" />
+    <rect x="1" y="1" rx="17" ry="17" width="278" height="148" fill="none" stroke="#ffe0b2" stroke-width="1.2"
+      opacity="0.8" />
+    <text x="20" y="32" fill="#fff7ed"
+      font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
+      font-size="18" font-weight="700">
+      📤 文件上传模块
+    </text>
+    <text x="20" y="60" fill="#fff7ed"
+      font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
+      font-size="13">
+      · 拍照或选择已有图片
+    </text>
+    <text x="20" y="82" fill="#fff7ed"
+      font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
+      font-size="13">
+      · 大小、格式、清晰度验证
+    </text>
+    <text x="20" y="104" fill="#fff7ed"
+      font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
+      font-size="13">
+      · 上传至服务器并保存文件记录
+    </text>
+    <text x="20" y="130" fill="#ffedd5"
+      font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
+      font-size="11">
+      为后续OCR与分类提供可靠输入源
+    </text>
+  </g>
+
+  <!-- OCR识别模块 -->
+  <g transform="translate(80,390)" filter="url(#cardShadow)" aria-label="OCR识别模块">
+    <rect x="0" y="0" rx="18" ry="18" width="280" height="150" fill="url(#cardPurple)" opacity="0.96" />
+    <rect x="1" y="1" rx="17" ry="17" width="278" height="148" fill="none" stroke="#f5d0fe" stroke-width="1.2"
+      opacity="0.85" />
+    <text x="20" y="32" fill="#fdf4ff"
+      font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
+      font-size="18" font-weight="700">
+      🔍 OCR识别模块
+    </text>
+    <text x="20" y="60" fill="#fdf4ff"
+      font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
+      font-size="13">
+      · 调用PaddleOCR引擎解析图片
+    </text>
+    <text x="20" y="82" fill="#fdf4ff"
+      font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
+      font-size="13">
+      · 提取文字 + 行块结构
+    </text>
+    <text x="20" y="104" fill="#fdf4ff"
+      font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
+      font-size="13">
+      · 结果预览与用户人工微调
+    </text>
+    <text x="20" y="130" fill="#fae8ff"
+      font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
+      font-size="11">
+      提前纠错，减少后续分类偏差
+    </text>
+  </g>
+
+  <!-- AI分类模块 -->
+  <g transform="translate(440,490)" filter="url(#cardShadow)" aria-label="AI分类模块">
+    <rect x="0" y="0" rx="18" ry="18" width="280" height="170" fill="url(#cardCyan)" opacity="0.97" />
+    <rect x="1" y="1" rx="17" ry="17" width="278" height="168" fill="none" stroke="#a5f3fc" stroke-width="1.2"
+      opacity="0.85" />
+    <text x="20" y="32" fill="#ecfeff"
+      font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
+      font-size="18" font-weight="700">
+      🤖 AI分类模块
+    </text>
+    <text x="20" y="60" fill="#ecfeff"
+      font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
+      font-size="13">
+      · 检测LLM API健康状态
+    </text>
+    <text x="20" y="82" fill="#ecfeff"
+      font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
+      font-size="13">
+      · 可用：调用大模型理解语义并推断意图
+    </text>
+    <text x="20" y="104" fill="#ecfeff"
+      font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
+      font-size="13">
+      · 不可用：退回规则 / 模板驱动分类策略
+    </text>
+    <text x="20" y="126" fill="#ecfeff"
+      font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
+      font-size="13">
+      · 计算分类置信度并生成解释信号
+    </text>
+    <text x="20" y="148" fill="#ecfeff"
+      font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
+      font-size="13">
+      · 高置信度自动分类 · 低置信度引导人工确认
+    </text>
+  </g>
+
+  <!-- 数据保存模块 -->
+  <g transform="translate(80,610)" filter="url(#cardShadow)" aria-label="数据保存模块">
+    <rect x="0" y="0" rx="18" ry="18" width="280" height="150" fill="url(#cardGreen)" opacity="0.97" />
+    <rect x="1" y="1" rx="17" ry="17" width="278" height="148" fill="none" stroke="#bbf7d0" stroke-width="1.2"
+      opacity="0.85" />
+    <text x="20" y="32" fill="#f0fdf4"
+      font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
+      font-size="18" font-weight="700">
+      💾 数据保存模块
+    </text>
+    <text x="20" y="60" fill="#f0fdf4"
+      font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
+      font-size="13">
+      · 根据分类结果判断数据类型
+    </text>
+    <text x="20" y="82" fill="#f0fdf4"
+      font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
+      font-size="13">
+      · 保存为日程：时间、地点、提醒规则
+    </text>
+    <text x="20" y="104" fill="#f0fdf4"
+      font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
+      font-size="13">
+      · 保存为备忘录：标签、分组、优先级
+    </text>
+    <!-- 预留位置：如需补充底部说明可在此添加 -->
+  </g>
+
+  <!-- 管理模块 -->
+  <g transform="translate(440,730)" filter="url(#cardShadow)" aria-label="管理模块">
+    <rect x="0" y="0" rx="18" ry="18" width="280" height="150" fill="url(#cardRed)" opacity="0.97" />
+    <rect x="1" y="1" rx="17" ry="17" width="278" height="148" fill="none" stroke="#fed7aa" stroke-width="1.2"
+      opacity="0.85" />
+    <text x="20" y="32" fill="#fff7ed"
+      font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
+      font-size="18" font-weight="700">
+      📋 管理与检索模块
+    </text>
+    <text x="20" y="60" fill="#fff7ed"
+      font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
+      font-size="13">
+      · 日程视图：时间线、即将到来事项
+    </text>
+    <text x="20" y="82" fill="#fff7ed"
+      font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
+      font-size="13">
+      · 备忘录视图：分组、标签、归档
+    </text>
+    <text x="20" y="104" fill="#fff7ed"
+      font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
+      font-size="13">
+      · 全文搜索 + 筛选排序
+    </text>
+    <text x="20" y="126" fill="#fff7ed"
+      font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
+      font-size="13">
+      · 编辑与删除，让信息保持新鲜可用
+    </text>
+  </g>
+
+
+  <!-- ===== 技术栈区域 ===== -->
+  <g transform="translate(80,960)" aria-label="技术栈">
+    <rect x="0" y="0" rx="16" ry="16" width="640" height="110" fill="rgba(15,23,42,0.85)" stroke="#1e293b"
+      stroke-width="1.5" />
+    <text x="24" y="34" fill="#e5e7eb"
+      font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
+      font-size="18" font-weight="600">
+      ⚙️ 技术栈支撑
+    </text>
+    <text x="24" y="64" fill="#cbd5f5"
+      font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
+      font-size="13">
+      · 前端：Vue 3 + TypeScript —— 流畅交互与组件化界面
+    </text>
+    <text x="24" y="84" fill="#cbd5f5"
+      font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
+      font-size="13">
+      · 后端：FastAPI + SQLAlchemy + SQLite —— 高性能API与轻量级存储
+    </text>
+    <text x="24" y="104" fill="#cbd5f5"
+      font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
+      font-size="13">
+      · AI：PaddleOCR + Parallax 本地部署 LLM API，后续演进至视觉大模型
+    </text>
+  </g>
+
+  <!-- 技术栈上方漂浮光点（轻动画，装饰不干扰信息） -->
+  <g aria-label="装饰光点" fill="#38bdf8" opacity="0.7">
+    <circle cx="640" cy="980" r="3">
+      <animate attributeName="cy" from="980" to="940" dur="4s" repeatCount="indefinite" />
+      <animate attributeName="opacity" from="0.2" to="0.9" dur="4s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="680" cy="1010" r="2.5">
+      <animate attributeName="cy" from="1010" to="960" dur="3.5s" repeatCount="indefinite" />
+      <animate attributeName="opacity" from="0.8" to="0.3" dur="3.5s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="600" cy="1030" r="2">
+      <animate attributeName="cy" from="1030" to="980" dur="3.8s" repeatCount="indefinite" />
+      <animate attributeName="opacity" from="0.3" to="0.8" dur="3.8s" repeatCount="indefinite" />
+    </circle>
+  </g>
+</svg>
+
+

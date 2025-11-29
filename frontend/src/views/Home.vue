@@ -2,14 +2,14 @@
   <div class="home-page">
     <div class="container">
       <div class="header">
-        <h1 class="page-title">文本归档助手</h1>
+        <h1 class="page-title">手写管理助手</h1>
         <div v-if="authStore.isAuthenticated()" class="user-info">
           <span class="welcome">欢迎回来！</span>
           <button @click="handleLogout" class="btn-logout">登出</button>
         </div>
       </div>
       
-      <p class="welcome-text">欢迎使用文本归档助手！</p>
+      <p class="welcome-text">欢迎使用手写管理助手！</p>
       
       <div class="features">
         <div class="feature-card">

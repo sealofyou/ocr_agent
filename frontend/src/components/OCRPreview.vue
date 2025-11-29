@@ -35,6 +35,19 @@
         </div>
       </div>
 
+      <!-- 保存到日程/备忘录 -->
+      <div class="save-section">
+        <h4>保存为</h4>
+        <div class="save-buttons">
+          <button @click="$emit('saveAsSchedule')" class="btn-save-schedule">
+            📅 保存为日程
+          </button>
+          <button @click="$emit('saveAsMemo')" class="btn-save-memo">
+            📝 保存为备忘录
+          </button>
+        </div>
+      </div>
+
       <div v-if="result.details && result.details.length > 0" class="result-details">
         <h4>详细信息</h4>
         <div class="details-list">
@@ -72,6 +85,8 @@ const props = withDefaults(defineProps<Props>(), {
 const emit = defineEmits<{
   retry: []
   save: [text: string]
+  saveAsSchedule: []
+  saveAsMemo: []
 }>()
 
 const isEditing = ref(false)
@@ -271,5 +286,58 @@ function cancelEdit() {
   font-size: 0.75rem;
   color: #6b7280;
   margin-left: 1rem;
+}
+
+.save-section {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #e5e7eb;
+}
+
+.save-section h4 {
+  margin: 0 0 1rem 0;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.save-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.btn-save-schedule,
+.btn-save-memo {
+  flex: 1;
+  min-width: 150px;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-save-schedule {
+  background: #3b82f6;
+  color: white;
+}
+
+.btn-save-schedule:hover {
+  background: #2563eb;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 6px rgba(59, 130, 246, 0.3);
+}
+
+.btn-save-memo {
+  background: #10b981;
+  color: white;
+}
+
+.btn-save-memo:hover {
+  background: #059669;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 6px rgba(16, 185, 129, 0.3);
 }
 </style>

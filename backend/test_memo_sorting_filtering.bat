@@ -1,17 +1,15 @@
 @echo off
 echo ========================================
-echo 运行手写管理助手测试
+echo 运行备忘录排序和筛选属性测试
 echo ========================================
 echo.
-
-cd backend
 
 echo 激活conda环境...
 call conda activate ocr_agent
 
 echo.
-echo 运行单元测试...
-python -m pytest tests/test_auth.py tests/test_upload.py tests/test_ocr.py tests/test_classification.py -v --tb=short
+echo 运行属性测试...
+python -m pytest tests/property_tests/test_memo_sorting_filtering.py -v -m property --tb=short
 
 echo.
 echo ========================================

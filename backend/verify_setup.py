@@ -71,7 +71,7 @@ def check_config():
 def main():
     """主函数"""
     print("=" * 50)
-    print("文本归档助手 - 项目设置验证")
+    print("手写管理助手 - 项目设置验证")
     print("=" * 50)
     
     checks = [

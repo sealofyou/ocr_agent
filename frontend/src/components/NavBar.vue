@@ -3,7 +3,7 @@
     <div class="nav-container">
       <div class="nav-brand">
         <router-link to="/" class="brand-link">
-          📝 文本归档助手
+          📝 手写管理助手
         </router-link>
       </div>
 

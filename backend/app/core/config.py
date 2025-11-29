@@ -17,7 +17,11 @@ class Settings(BaseSettings):
     PROJECT_PATH: str = ""
 
     # 跨域配置
-    allow_origins: list[str] = ["http://localhost:5173", "http://127.0.0.1:5173"]
+    allow_origins: list[str] = [
+        "http://localhost:5173", 
+        "http://127.0.0.1:5173",
+        "http://192.168.1.4:5173"
+    ]
     allow_credentials: bool = True
     allow_methods: list[str] = ["GET", "POST", "PUT", "DELETE"]
     allow_headers: list[str] = ["*"]

@@ -1,6 +1,6 @@
 # LLM集成说明
 
-本文档说明如何将LLM（Qwen2-VL-7B-Instruct）集成到文本归档助手的分类服务中。
+本文档说明如何将LLM（Qwen2-VL-7B-Instruct）集成到手写管理助手的分类服务中。
 
 ## 概述
 
